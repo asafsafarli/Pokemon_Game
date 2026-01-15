@@ -1,4 +1,3 @@
-
 const rules = ["w", "e", "f"]
 let point1 = 0
 let point2 = 0
@@ -19,15 +18,8 @@ function attackAnim(img) {
     setTimeout(() => img.classList.remove("attack"), 200)
 }
 
-window.addEventListener("keydown", function (e) {
-    const userChoose = e.key.toLowerCase()
+function playRound(userChoose) {
     const compChoose = randomEl(rules)
-
-    if (!rules.includes(userChoose)) {
-        resultEl.className = "alert alert-warning text-center"
-        resultEl.innerText = "Only W, E, F keys!"
-        return
-    }
 
     attackAnim(playerImg)
     attackAnim(enemyImg)
@@ -53,4 +45,24 @@ window.addEventListener("keydown", function (e) {
 
     p1El.innerText = point1
     p2El.innerText = point2
+}
+
+// Keyboard input (desktop)
+window.addEventListener("keydown", function (e) {
+    const userChoose = e.key.toLowerCase()
+    if (!rules.includes(userChoose)) {
+        resultEl.className = "alert alert-warning text-center"
+        resultEl.innerText = "Only W, E, F keys!"
+        return
+    }
+    playRound(userChoose)
+})
+
+// Mobile buttons
+const mobileButtons = document.querySelectorAll("[data-key]")
+mobileButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const userChoose = btn.getAttribute("data-key")
+        playRound(userChoose)
+    })
 })
