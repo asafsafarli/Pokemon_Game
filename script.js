@@ -1,20 +1,16 @@
-// =====================
-// GAME DATA
-// =====================
+
 const rules = ["w", "e", "f"]
 
 const pokemonImages = {
-    w: "img/squirtle.jpg",   // Water
-    e: "img/pikachu.jpg",    // Electric
-    f: "img/charmander.png" // Fire
+    w: "img/Squirtle.jpg",   // Water
+    e: "img/Pikachu.jpg",    // Electric
+    f: "img/Charmander.png" // Fire
 }
 
 let point1 = 0
 let point2 = 0
 
-// =====================
-// DOM ELEMENTS
-// =====================
+
 const p1El = document.getElementById("p1")
 const p2El = document.getElementById("p2")
 const resultEl = document.getElementById("result")
